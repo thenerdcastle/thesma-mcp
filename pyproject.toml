@@ -5,14 +5,31 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "thesma-mcp"
 version = "0.1.0"
-description = "MCP server that gives AI assistants native access to Thesma's SEC EDGAR data"
+description = "MCP server for SEC EDGAR financial data — give your AI assistant access to company financials, ratios, insider trades, and more"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.12"
+keywords = ["mcp", "sec", "edgar", "financial-data", "ai", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "mcp>=1.0,<2.0",
     "httpx>=0.27",
 ]
+
+[project.urls]
+Homepage = "https://thesma.dev"
+Documentation = "https://docs.thesma.dev"
+Repository = "https://github.com/thenerdcastle/thesma-mcp"
+Issues = "https://github.com/thenerdcastle/thesma-mcp/issues"
 
 [project.optional-dependencies]
 dev = [
