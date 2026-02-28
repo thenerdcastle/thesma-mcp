@@ -10,6 +10,18 @@ from mcp.server.fastmcp import Context
 from thesma_mcp.formatters import format_table
 from thesma_mcp.server import AppContext, mcp
 
+CATEGORY_LABELS: dict[str, str] = {
+    "ma": "M&A",
+    "earnings": "Earnings",
+    "leadership": "Leadership",
+    "agreements": "Agreements",
+    "governance": "Governance",
+    "accounting": "Accounting",
+    "distress": "Distress",
+    "regulatory": "Regulatory",
+    "other": "Other",
+}
+
 VALID_CATEGORIES = frozenset(
     {
         "earnings",
@@ -113,7 +125,7 @@ async def get_events(
         return f"No events found{' ' + scope if scope else ''}{cat_filter}. Try adjusting your filters."
 
     count_shown = len(data)
-    cat_label = category.title() if category else "Corporate Events"
+    cat_label = CATEGORY_LABELS.get(category, category.title()) if category else "Corporate Events"
 
     # Build header
     if company_name:
