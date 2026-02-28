@@ -36,6 +36,17 @@ async def app_lifespan(server: Any) -> AsyncIterator[AppContext]:
 
 mcp = FastMCP("thesma", lifespan=app_lifespan)
 
+# Register tool modules — importing them triggers @mcp.tool() registration
+import thesma_mcp.tools.companies as _companies_tools  # noqa: F401, E402
+import thesma_mcp.tools.compensation as _compensation_tools  # noqa: F401, E402
+import thesma_mcp.tools.events as _events_tools  # noqa: F401, E402
+import thesma_mcp.tools.filings as _filings_tools  # noqa: F401, E402
+import thesma_mcp.tools.financials as _financials_tools  # noqa: F401, E402
+import thesma_mcp.tools.holdings as _holdings_tools  # noqa: F401, E402
+import thesma_mcp.tools.insider_trades as _insider_trades_tools  # noqa: F401, E402
+import thesma_mcp.tools.ratios as _ratios_tools  # noqa: F401, E402
+import thesma_mcp.tools.screener as _screener_tools  # noqa: F401, E402
+
 
 def main() -> None:
     """Run the MCP server."""
